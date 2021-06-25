@@ -1,0 +1,30 @@
+﻿@model List<ExpensesModel>
+<div id="TableBackgroundColor">
+    @*                      EXPENSE TABLE                     *@
+    <h4 class="text-center">Expense</h4>
+    <table class="col-12">
+        <thead>
+            <tr>
+                <th>Expense</th>
+                <th>Amount</th>
+                <th>Time Stamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in Model)
+            {
+                <tr>
+                    <td>@e.ExpenseType</td>
+                    <td>@e.Amount</td>
+                    <td>@e.TimeStamp</td>
+                    <td>
+                        <a asp-controller="Business" asp-action="AddUpdateIncome" asp-route-id="@e.ID">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Business" asp-action="Delete" asp-route-type="Expense" asp-route-id="@e.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

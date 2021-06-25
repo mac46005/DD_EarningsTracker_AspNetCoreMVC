@@ -1,0 +1,27 @@
+﻿@*///////////////////////AddUpdateINCOME VIEW/////////////////////////*@
+
+@model IncomeModel
+@{
+    ViewData["Title"] = "Income";
+    string placeholder = "Enter dollar amount";
+}
+<h3>@((ViewData["ViewTitle"] != null) ? ViewData["ViewTitle"].ToString() : "") Income</h3>
+<form method="post" class="form-group">
+    <div asp-validation-summary="All" class="text-warning"></div>
+    <input asp-for="@Model.ID" value="@Model.ID" type="hidden" />
+    <div>
+        <label asp-for="@Model.DD_Pay">Door Dash Base Pay:</label>
+        <input asp-for="@Model.DD_Pay" value="@Model.DD_Pay" placeholder="@placeholder" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="@Model.Tips">Enter Tip Amount:</label>
+        <input asp-for="@Model.Tips" value="@Model.Tips" placeholder="@placeholder" />
+    </div>
+    <div>
+        <label>Date:</label>
+        <input type="datetime-local" asp-for="@Model.TimeStamp" value="@Model.TimeStamp" />
+    </div>
+    <button class="btn btn-outline-primary" type="submit">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger">Cancel</a>
+</form>

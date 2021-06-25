@@ -1,0 +1,70 @@
+﻿@*///////////////////////LAYOUT/////////////////////////*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DD_EarningsTracker_AspNetCoreMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/StyleSheet.css?v=8" />
+</head>
+<body>
+    <header>
+        <nav class=" navbar navbar-expand-md fixed-top">
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">DD Business Tracker</a>
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="#navbarSupportedContent">
+                <div class="navbar-nav mr-auto">
+                    <a asp-controller="Home" asp-action="Index" class="nav-item nav-link">Home</a>
+                    <a asp-controller="Business" asp-action="Index" class="nav-item nav-link">Manage</a>
+                    <a asp-controller="List" asp-action="Index" class="nav-item nav-link">List History</a>
+                </div>
+                <div id="RightNav" class="navbar-nav navbar-right rounded">
+                    <div style="color:#ffd800;font-weight:bold" class="ml-2">
+                        <div>This</div>
+                        <div>Week</div>
+                    </div>
+                    <a class="nav-item nav-link">
+                        @*<span class="fas fa-first-order"></span>*@
+                        &nbsp;<span id="HomeMainContent">Orders</span> :&nbsp;
+                        <span class="badge">@((ViewData["count"] != null) ? ViewData["count"] : "0") </span>
+                    </a>
+                    <a class="nav-item nav-link">
+                        @*<span class="fas fa-money"></span>*@
+                        &nbsp;<span id="HomeMainContent">Income</span> :&nbsp;
+                        <span id="MoneyColorText" class="badge">@((ViewData["income"] != null) ? ViewData["income"] : "$0")</span>
+                    </a>
+                    <a class="nav-item nav-link">
+                        @*<span style="color:white" class="fas fa-money-bill"></span>*@
+                        &nbsp;<span id="HomeMainContent">Expense</span> :&nbsp;
+                        <span style="color:red" class="badge">@((ViewData["expense"] != null) ? ViewData["expense"] : "$0")</span>
+                    </a>
+                    <a class="nav-item nav-link">
+                        @*<span style="color:white" class="fas fa-car"></span>*@
+                        &nbsp;<span id="HomeMainContent">Miles</span> :&nbsp;
+                        <span class="badge">@((ViewData["mileage"] != null) ? ViewData["mileage"] : "0")</span>
+                    </a>
+                </div>
+            </nav>
+        </nav>
+    </header>
+    <div class="container">
+        <main style="margin-top:90px" role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        &copy;DDBusinessTracker2020
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

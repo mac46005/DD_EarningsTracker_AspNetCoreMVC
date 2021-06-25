@@ -1,0 +1,35 @@
+﻿@model List<IncomeModel>
+<h4 class="text-center">Income</h4>
+<div class="container">
+</div>
+<a id="Top" asp-fragment="Bottom">To Buttom</a>
+<main class="container">
+    <div id="TableBackgroundColor" class="row">
+        <table class="col-12" >
+            <thead>
+                <tr>
+                    <th>DD Pay</th>
+                    <th>Tips</th>
+                    <th>Time Stamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>$@i.DD_Pay</td>
+                        <td>$@i.Tips</td>
+                        <td>@i.TimeStamp</td>
+                        <td>
+                            <a asp-controller="Business" asp-action="AddUpdateIncome" asp-route-id="@i.ID">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-controller="Business" asp-action="Delete" asp-route-type="Income" asp-route-id="@i.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+<a id="Bottom" asp-fragment="Top">To Top</a>

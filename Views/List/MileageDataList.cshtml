@@ -1,0 +1,28 @@
+﻿@model List<MileageModel>
+<div id="TableBackgroundColor">
+    @*                  MILEAGE TABLE                        *@
+    <h4 class="text-center">Mileage</h4>
+    <table class="col-12">
+        <thead>
+            <tr>
+                <th>Mileage</th>
+                <th>Time Stamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Mileage</td>
+                    <td>@m.TimeStamp</td>
+                    <td>
+                        <a asp-controller="" asp-action="AddUpdateIncome" asp-route-id="@m.ID">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Business" asp-action="Delete" asp-route-type="Mileage" asp-route-id="@m.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

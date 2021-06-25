@@ -1,0 +1,60 @@
+﻿@*///////////////////////DELETE VIEW/////////////////////////*@
+
+@model DeleteViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+<h3>Delete @TempData.Peek("TempDeleteTitle").ToString()</h3>
+<form method="post">
+
+    <h6>Are you sure you want to delete this?</h6>
+    @if (Model.incomeModel != null)
+    {
+        <input asp-for="@Model.incomeModel.ID" type="hidden" />
+        <div>
+            DD Pay: $<label asp-for="@Model.incomeModel.DD_Pay">@Model.incomeModel.DD_Pay</label>
+            <input asp-for="@Model.incomeModel.DD_Pay" type="hidden" />
+        </div>
+        <div>
+            Tips: $<label asp-for="@Model.incomeModel.Tips">@Model.incomeModel.Tips</label>
+            <input asp-for="@Model.incomeModel.Tips" type="hidden" />
+        </div>
+        <div>
+            Time Stamp:<label asp-for="@Model.incomeModel.TimeStamp">@Model.incomeModel.TimeStamp</label>
+            <input asp-for="@Model.incomeModel.TimeStamp" type="hidden" />
+        </div>
+            
+
+    }
+    @if (Model.expensesModel != null)
+    {
+        <input asp-for="@Model.expensesModel.ID" type="hidden" />
+        <div>
+            Bought: <label asp-for="@Model.expensesModel.ExpenseType">@Model.expensesModel.ExpenseType</label>
+            <input asp-for="@Model.expensesModel.ExpenseType" type="hidden" />
+        </div>
+        <div>
+            Amount: <label asp-for="@Model.expensesModel.Amount">@Model.expensesModel.Amount</label>
+            <input asp-for="@Model.expensesModel.Amount" type="hidden" />
+        </div>
+        <div>
+            Time Stamp: <label asp-for="@Model.expensesModel.TimeStamp">@Model.expensesModel.TimeStamp</label>
+            <input asp-for="@Model.expensesModel.TimeStamp" type="hidden" />
+        </div>
+    }
+    @if (Model.mileageModel != null)
+    {
+        <input asp-for="@Model.mileageModel.ID" type="hidden"/>
+        <div>
+            Mileage: <label asp-for="@Model.mileageModel.Mileage">@Model.mileageModel.Mileage miles</label>
+            <input asp-for="@Model.mileageModel.Mileage" type="hidden" />
+        </div>
+        <div>
+            Time Stamp:<label asp-for="@Model.mileageModel.TimeStamp">@Model.mileageModel.TimeStamp</label>
+            <input asp-for="@Model.mileageModel.TimeStamp" type="hidden" />
+        </div>
+            
+    }
+    <button type="submit" class="btn btn-outline-primary">Delete</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form>

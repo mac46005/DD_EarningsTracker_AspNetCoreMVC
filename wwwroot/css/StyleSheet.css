@@ -1,0 +1,58 @@
+﻿/*General Styles*/
+body {
+    background-color: black;
+    color:white;text-align:center;
+}
+a :hover{
+    color:#0008ff
+}
+/* nav styles*/
+nav{
+    background-color:#f13400;
+    
+}
+.navbar-brand{
+    font-size:x-large;
+    font-weight:bolder;
+    padding-left: 2em;
+    color: white
+}
+.nav-link{
+    font-size:medium;
+    font-weight:bold;
+    color: white;
+}
+#RightNav{
+    border:solid 5px white;
+    background-color:black;
+}
+
+/*Home Index*/
+#HomeMainContent {
+    color:#00b1ff
+}
+#MoneyColorText{
+    color:#14bb1c;
+}
+
+/*Table Styles*/
+table{
+    color:black;
+    background-color:#b7b7b7;
+}
+th{
+    border:solid 1px black;
+}
+td {
+    border: solid 1px black;
+}
+#TableBackgroundColor{
+    background-color:#1c0000
+}
+
+/*Button Styles*/
+.btn{
+    font-size:large;
+    font-weight:bold
+}
+

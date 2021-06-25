@@ -1,0 +1,17 @@
+﻿@*///////////////////////HOME INDEX VIEW/////////////////////////*@
+
+@model DD_BusinessData_ViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    string incomeTotal = DecimalListAdd.AddTotals(new List<List<decimal?>> { Model.incomeModels.Select(t => t.DD_Pay).ToList(),Model.incomeModels.Select(t => t.Tips).ToList() });
+    string expenseTotal = DecimalListAdd.AddTotals(new List<List<decimal?>> { Model.expensesModels.Select(t => t.Amount).ToList() });
+    string mileageTotal = DecimalListAdd.AddTotals(new List<List<decimal?>> { Model.mileageModels.Select(t => t.Mileage).ToList() });
+}
+<h1>Business so Far...</h1>
+<main id="HomeMainContent" class="text-center">
+
+    <div><h4>Total Earnings:</h4><h4 id="MoneyColorText">$@incomeTotal</h4></div>
+    <div><h4>Total Expenses:</h4><h4 id="MoneyColorText">$@expenseTotal</h4></div>
+    <div><h4>Total Mileage:</h4><h4 id="MoneyColorText">@mileageTotal miles</h4></div>
+</main>
+<a asp-controller="Business" asp-action="Index" class="col btn btn-danger">Manage</a>

@@ -1,0 +1,126 @@
+﻿@*///////////////////////BUSINESS INDEX VIEW/////////////////////////*@
+
+@model DD_BusinessData_ViewModel
+<h1 class="text-center">Menu</h1>
+<div>
+    <div>
+        <a asp-action="AddUpdateIncome" class="col btn btn-primary mb-1">Add Income</a>
+        <a asp-action="AddUpdateExpense" class="col btn btn-primary mb-1">Add Expense</a>
+        <a asp-action="AddUpdateMileage" class="col btn btn-primary mb-1">Add Mileage</a>
+        @if (TempData["message"] != null)
+        {
+            <div class="col mt-3">
+                <div class="alert alert-success alert-dismissible" data-dismiss="alert">
+                    <button class="close">&times;</button>
+                    <h4>@TempData["message"].ToString()</h4>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="text-center"><h3>Data List</h3></div>
+<main class="container">
+    <div class="row">
+        <div id="TableBackgroundColor">
+            @*                 INCOME TABLE                           *@
+            <h4 class="text-center">Income</h4>
+            <table class="mr-2">
+                <thead>
+                    <tr>
+                        <th>DD Pay</th>
+                        <th>Tips</th>
+                        <th>Time Stamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model.incomeModels)
+                    {
+                        <tr>
+                            <td>$@i.DD_Pay</td>
+                            <td>$@i.Tips</td>
+                            <td>@i.TimeStamp</td>
+                            <td>
+                                <a asp-action="AddUpdateIncome" asp-route-id="@i.ID">Edit</a>
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-type="Income" asp-route-id="@i.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+        <div id="TableBackgroundColor">
+            @*                      EXPENSE TABLE                     *@
+            <h4 class="text-center">Expense</h4>
+            <table class="mr-2">
+                <thead>
+                    <tr>
+                        <th>Expense</th>
+                        <th>Amount</th>
+                        <th>Time Stamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var e in Model.expensesModels)
+                    {
+                        <tr>
+                            <td>@e.ExpenseType</td>
+                            <td>@e.Amount</td>
+                            <td>@e.TimeStamp</td>
+                            <td>
+                                <a asp-action="AddUpdateIncome" asp-route-id="@e.ID">Edit</a>
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-type="Expense" asp-route-id="@e.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div id="TableBackgroundColor">
+            @*                  MILEAGE TABLE                        *@
+            <h4 class="text-center">Mileage</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mileage</th>
+                        <th>Time Stamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in Model.mileageModels)
+                    {
+                        <tr>
+                            <td>@m.Mileage</td>
+                            <td>@m.TimeStamp</td>
+                            <td>
+                                <a asp-action="AddUpdateIncome" asp-route-id="@m.ID">Edit</a>
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-type="Mileage" asp-route-id="@m.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

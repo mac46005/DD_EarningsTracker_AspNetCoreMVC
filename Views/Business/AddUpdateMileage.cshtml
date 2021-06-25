@@ -1,0 +1,22 @@
+﻿@*///////////////////////AddUpdateMILEAGE VIEW/////////////////////////*@
+
+@model MileageModel
+@{
+    ViewData["Title"] = "Mileage";
+}
+<h3>@((ViewData["ViewTitle"] != null) ? ViewData["ViewTitle"].ToString() : "") Mileage</h3>
+<form method="post" class="form-group">
+    <div asp-validation-summary="All" class="text-warning"></div>
+    <input asp-for="@Model.ID" value="@Model.ID" type="hidden" />
+    <div>
+        <label asp-for="@Model.Mileage">Mileage:</label>
+        <input asp-for="@Model.Mileage" value="@Model.Mileage" placeholder="enter miles" />
+    </div>
+    <br />
+    <div>
+        <label>Date:</label>
+        <input type="datetime-local" asp-for="@Model.TimeStamp" value="@Model.TimeStamp" />
+    </div>
+    <button class="btn btn-outline-primary" type="submit">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger">Cancel</a>
+</form>
